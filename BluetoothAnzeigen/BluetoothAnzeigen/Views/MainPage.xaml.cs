@@ -51,5 +51,23 @@ namespace BluetoothAnzeigen.Views
 
             einkäufe.ItemsSource = items;
         }
+
+        void New_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NewEntryEinkauf());
+        }
+
+        async void Einkauf_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var einkauf = (EinkaufEntry)e.CurrentSelection.FirstOrDefault();
+
+            if (einkauf != null)
+            {
+                await Navigation.PushAsync(new DetailPage(einkauf));
+            }
+
+            //Clear selection
+            einkäufe.SelectedItem = null;
+        }
     }
 }
