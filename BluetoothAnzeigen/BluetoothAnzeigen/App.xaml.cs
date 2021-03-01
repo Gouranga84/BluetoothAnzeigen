@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using BluetoothAnzeigen.Views;
 
 namespace BluetoothAnzeigen
 {
@@ -10,7 +11,7 @@ namespace BluetoothAnzeigen
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
