@@ -9,7 +9,7 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <CollectionView x:Name="einkäufe" SelectionMode="Single" SelectionChanged="Einkauf_SelectionChanged">
+        <CollectionView x:Name="einkäufe" SelectionMode="Single" SelectionChanged="Einkauf_SelectionChanged" ItemsSource="{Binding EinkaufEntries}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10">

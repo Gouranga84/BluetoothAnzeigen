@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using BluetoothAnzeigen.ViewModels;
 
 namespace BluetoothAnzeigen.Views
 {
@@ -15,6 +11,8 @@ namespace BluetoothAnzeigen.Views
         public NewEntryEinkauf()
         {
             InitializeComponent();
+
+            BindingContext = new NewEntryViewModel();
         }
     }
 }
