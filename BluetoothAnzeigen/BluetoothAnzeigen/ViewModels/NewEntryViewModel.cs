@@ -5,7 +5,7 @@ using BluetoothAnzeigen.Models;
 
 namespace BluetoothAnzeigen.ViewModels
 {
-    public class NewEntryViewModel : BaseViewModel
+    public class NewEntryViewModel : BaseValidationViewModel
     {
         #region setzen/lesen der EinkaufEntry Felder
         double _betrag;
@@ -15,7 +15,9 @@ namespace BluetoothAnzeigen.ViewModels
             set
             {
                 _betrag = value;
+                Validate(() => _betrag > 0 , "Betrag kann nicht negativ sein");
                 OnPropertyChanged();
+                SaveCommand.ChangeCanExecute();
             }
         }
         string _marktname;
@@ -25,6 +27,7 @@ namespace BluetoothAnzeigen.ViewModels
             set
             {
                 _marktname = value;
+                Validate(() => !string.IsNullOrWhiteSpace(_marktname), "Der name kann nicht leer bleiben");
                 OnPropertyChanged();
                 SaveCommand.ChangeCanExecute();
             }
@@ -95,7 +98,7 @@ namespace BluetoothAnzeigen.ViewModels
             // TODO: Persist entry in a later chapter
         }
 
-        bool CanSave() => !string.IsNullOrWhiteSpace(Marktname);
+        bool CanSave() => !string.IsNullOrWhiteSpace(Marktname) && !HasErrors;
         #endregion
     }
 }

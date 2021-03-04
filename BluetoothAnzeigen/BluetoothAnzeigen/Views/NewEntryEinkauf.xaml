@@ -12,8 +12,8 @@
         <TableView Intent="Form">
             <TableView.Root>
                 <TableSection>
-                    <EntryCell Label="Betrag" Keyboard="Numeric" Text="{Binding Betrag}"/>
-                    <EntryCell Label="Marktname" Text="{Binding Marktname}"/>
+                    <EntryCell x:Name="betrag" Label="Betrag" Keyboard="Numeric" Text="{Binding Betrag}"/>
+                    <EntryCell x:Name="marktname" Label="Marktname" Text="{Binding Marktname}"/>
                     <EntryCell Label="Datum" Text="{Binding Datum, StringFormat='{0:d}'}"/>
                     <EntryCell Label="Artikelanzahl" Keyboard="Numeric" Text="{Binding Artikelanzahl}"/>
                     <EntryCell Label="Latitude" Keyboard="Numeric" Text="{Binding Latitude}"/>
